@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="statistics">
+
+	<select id="countPerHours" resultType="timeCount">
+		select to_char(writedate+9/24, 'HH24') hour,
+		count(to_char(writedate+9/24, 'HH24')) cnt
+		from message group by to_char(writedate+9/24, 'HH24')
+		order by hour
+	
+	</select>
+	
+
+
+
+</mapper>
